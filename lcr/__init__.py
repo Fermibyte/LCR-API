@@ -167,12 +167,23 @@ class API():
         Obtain member information on recommend status
         """
         _LOGGER.info("Getting recommend status")
-        request = {
-                'url': 'https://{}/services/recommend/recommend-status'.format(LCR_DOMAIN),
-                'params': {
-                    'lang': 'eng',
-                    'unitNumber': self.unit_number
+        request = {'url': 'https://{}/services/recommend/recommend-status'.format(LCR_DOMAIN),
+                   'params': {
+                       'lang': 'eng',
+                       'unitNumber': self.unit_number
                     }
                 }
         result = self._make_request(request)
+        return result.json()
+        
+    def send_email(self, recipient_list, subject_text, message_text):
+        """
+        Send an email to all of the ward, !!!!!!!!NOT COMPLETED!!!!!!!!
+        """
+        _LOGGER.info("Sending ward email")
+        request = {'url': 'https://{}/messaging'.format(LCR_DOMAIN),
+                   'params': {
+                       'lang': 'eng',
+                       '
+                   
         return result.json()
